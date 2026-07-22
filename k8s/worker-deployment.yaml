@@ -3,21 +3,19 @@ kind: Deployment
 metadata:
   name: documind-worker
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: documind
-      component: worker
+      app: documind-worker
   template:
     metadata:
       labels:
-        app: documind
-        component: worker
+        app: documind-worker
     spec:
       containers:
         - name: worker
-          image: documind:latest
-          command: ["celery", "-A", "documind.workers", "worker", "--loglevel=info"]
+          image: documind:ci
+          command: ["celery", "-A", "documind.workers.celery_app", "worker", "--loglevel=info"]
           envFrom:
             - configMapRef:
                 name: documind-config

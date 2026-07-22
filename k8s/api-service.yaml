@@ -4,8 +4,7 @@ metadata:
   name: documind-api
 spec:
   selector:
-    app: documind
-    component: api
+    app: documind-api
   ports:
     - port: 80
       targetPort: 8000
