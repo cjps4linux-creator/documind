@@ -1,0 +1,96 @@
+DOCUMIND FULL TREE AUDIT
+============================================================
+DIR	alembic
+FILE	alembic\env.py	1300	51
+FILE	alembic\script.py.mako	739	32
+DIR	alembic\versions
+FILE	alembic\versions\a1b2c3d4e5f6_initial_documents_chunks_pgvector.py	1887	52
+FILE	alembic.ini	858	50
+FILE	docker-compose.yml	1386	54
+FILE	Dockerfile	320	14
+DIR	docs
+DIR	docs\adrs
+FILE	docs\adrs\001-pgvector.md	400	15
+FILE	docs\adrs\002-celery-redis.md	292	14
+FILE	docs\architecture.md	395	8
+DIR	k8s
+FILE	k8s\api-deployment.yaml	442	22
+FILE	k8s\api-service.yaml	176	11
+FILE	k8s\configmap.yaml	288	9
+FILE	k8s\hpa.yaml	375	18
+FILE	k8s\worker-deployment.yaml	498	21
+FILE	pyproject.toml	1299	67
+FILE	README.md	807	24
+FILE	requirements.txt	345	19
+DIR	scripts
+FILE	scripts\seed.py	187	8
+DIR	src
+DIR	src\documind
+FILE	src\documind\__init__.py	74	2
+DIR	src\documind\__pycache__
+FILE	src\documind\__pycache__\__init__.cpython-311.pyc	240	2
+FILE	src\documind\__pycache__\app.cpython-311.pyc	1432	18
+FILE	src\documind\__pycache__\config.cpython-311.pyc	2126	12
+FILE	src\documind\__pycache__\routers.cpython-311.pyc	5095	38
+FILE	src\documind\__pycache__\schemas.cpython-311.pyc	4891	48
+DIR	src\documind\adapter
+FILE	src\documind\adapter\__init__.py	0	0
+DIR	src\documind\adapter\__pycache__
+FILE	src\documind\adapter\__pycache__\__init__.cpython-311.pyc	164	2
+FILE	src\documind\adapter\__pycache__\chat.cpython-311.pyc	5788	53
+FILE	src\documind\adapter\chat.py	2486	69
+FILE	src\documind\app.py	686	25
+FILE	src\documind\config.py	1072	19
+DIR	src\documind\db
+FILE	src\documind\db\__init__.py	0	0
+DIR	src\documind\db\__pycache__
+FILE	src\documind\db\__pycache__\__init__.cpython-311.pyc	159	2
+FILE	src\documind\db\__pycache__\engine.cpython-311.pyc	399	4
+FILE	src\documind\db\__pycache__\models.cpython-311.pyc	4240	45
+FILE	src\documind\db\__pycache__\session.cpython-311.pyc	957	9
+FILE	src\documind\db\engine.py	167	3
+FILE	src\documind\db\models.py	2011	58
+FILE	src\documind\db\routers.py	131	4
+FILE	src\documind\db\session.py	324	6
+DIR	src\documind\embeddings
+DIR	src\documind\embeddings\__pycache__
+FILE	src\documind\embeddings\__pycache__\adapter.cpython-311.pyc	6412	42
+FILE	src\documind\embeddings\adapter.py	3103	88
+DIR	src\documind\evaluation
+DIR	src\documind\evaluation\__pycache__
+FILE	src\documind\evaluation\__pycache__\harness.cpython-311.pyc	3828	39
+FILE	src\documind\evaluation\harness.py	1671	45
+DIR	src\documind\ingestion
+DIR	src\documind\ingestion\__pycache__
+FILE	src\documind\ingestion\__pycache__\chunker.cpython-311.pyc	1910	32
+FILE	src\documind\ingestion\chunker.py	832	30
+DIR	src\documind\rag
+FILE	src\documind\rag\__init__.py	50	1
+FILE	src\documind\routers.py	3103	84
+FILE	src\documind\schemas.py	1868	84
+DIR	src\documind\services
+FILE	src\documind\services\__init__.py	0	0
+DIR	src\documind\services\__pycache__
+FILE	src\documind\services\__pycache__\__init__.cpython-311.pyc	165	2
+FILE	src\documind\services\__pycache__\ingestion.cpython-311.pyc	8791	87
+FILE	src\documind\services\__pycache__\retrieval.cpython-311.pyc	4575	61
+FILE	src\documind\services\ingestion.py	4696	115
+FILE	src\documind\services\retrieval.py	2197	40
+FILE	src\documind\workers.py	1746	57
+DIR	tests
+DIR	tests\evaluation
+DIR	tests\evaluation\__pycache__
+FILE	tests\evaluation\__pycache__\test_harness.cpython-311-pytest-9.1.1.pyc	3623	40
+FILE	tests\evaluation\test_harness.py	737	21
+DIR	tests\integration
+DIR	tests\integration\__pycache__
+FILE	tests\integration\__pycache__\test_api.cpython-311-pytest-9.1.1.pyc	10582	79
+FILE	tests\integration\test_api.py	2516	74
+DIR	tests\unit
+DIR	tests\unit\__pycache__
+FILE	tests\unit\__pycache__\test_adapters.cpython-311-pytest-9.1.1.pyc	2594	20
+FILE	tests\unit\__pycache__\test_app.cpython-311-pytest-9.1.1.pyc	5413	38
+FILE	tests\unit\__pycache__\test_ingest.cpython-311-pytest-9.1.1.pyc	8437	85
+FILE	tests\unit\test_adapters.py	678	23
+FILE	tests\unit\test_app.py	1259	41
+FILE	tests\unit\test_ingest.py	2077	52

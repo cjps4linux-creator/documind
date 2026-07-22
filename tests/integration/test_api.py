@@ -7,7 +7,6 @@ from sqlalchemy.orm import DeclarativeBase
 
 from documind.app import app
 from documind.db.models import Base, Chunk, ChunkEmbedding, Document, DocumentStatus
-from documind.schemas import AskRequest
 from documind.services.ingestion import IngestService
 from documind.embeddings.adapter import EmbeddingAdapter
 from documind.adapter.chat import ChatAdapter
@@ -66,8 +65,7 @@ def test_ask_returns_answer(app_with_state):
     if "postgres" not in settings.DATABASE_URL:
         pytest.skip("retrieval requires postgres/pgvector")
     with TestClient(app_with_state) as client:
-        ingest = client.post("/ingest", json={"text": "DocuMind is an AI document intelligence platform."})
-        document_id = ingest.json()["id"]
+        client.post("/ingest", json={"text": "DocuMind is an AI document intelligence platform."})
         response = client.post("/ask", json={"query": "What is DocuMind?", "top_k": 2})
     assert response.status_code == 200
     assert response.json()["answer"] == "answer"

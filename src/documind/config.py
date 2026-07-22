@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str | None = Field(default=None)
     OPENAI_EMBEDDING_MODEL: str = Field(default="text-embedding-3-small")
     OPENAI_CHAT_MODEL: str = Field(default="gpt-4o-mini")
+    AWS_REGION: str = Field(default="us-east-1")
     BEDROCK_EMBEDDING_MODEL_ID: str = Field(default="amazon.titan-embed-text-v2:0")
     BEDROCK_CHAT_MODEL_ID: str = Field(default="anthropic.claude-3-5-sonnet-20240620-v1:0")
     DATABASE_URL: str = Field(default="sqlite+aiosqlite:///./documind.db")

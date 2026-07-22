@@ -7,8 +7,6 @@ from sqlalchemy.orm import DeclarativeBase
 
 from documind.app import app
 from documind.db.models import Base
-from documind.schemas import AskRequest
-from documind.services.retrieval import RetrievalService
 from documind.embeddings.adapter import EmbeddingAdapter
 from documind.adapter.chat import ChatAdapter
 
