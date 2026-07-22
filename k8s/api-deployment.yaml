@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: documind-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: documind
+      component: api
+  template:
+    metadata:
+      labels:
+        app: documind
+        component: api
+    spec:
+      containers:
+        - name: api
+          image: documind:latest
+          command: ["uvicorn", "documind.app:app", "--host", "0.0.0.0", "--port", "8000"]
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: documind-config
