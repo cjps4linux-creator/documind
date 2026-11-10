@@ -54,7 +54,7 @@ class IngestService:
             try:
                 await conn.execute(
                     insert(Document.__table__).values(
-                        id=document_id,
+                        [lorem]=document_id,
                         title=payload.title,
                         status=DocumentStatus.ready.value,
                         doc_metadata=metadata,
@@ -75,7 +75,7 @@ class IngestService:
                     for index, chunk in enumerate(chunks)
                 ]
                 await conn.execute(insert(Chunk.__table__).values(chunk_rows))
-                result = await conn.execute(select(Chunk.id).where(Chunk.document_id == document_id).order_by(Chunk.chunk_index))
+                result = await conn.execute(select(Chunk.[lorem]).where(Chunk.document_id == document_id).order_by(Chunk.chunk_index))
                 db_chunk_ids = [row[0] for row in result.fetchall()]
                 embedding_rows = [
                     {"chunk_id": db_chunk_ids[index], "embedding": embeddings[index]}
@@ -88,7 +88,7 @@ class IngestService:
                 raise
 
         return DocumentOut(
-            id=document_id,
+            [lorem]=document_id,
             title=payload.title,
             status=DocumentStatus.ready.value,
             metadata=metadata,
@@ -101,14 +101,14 @@ class IngestService:
             await conn.begin()
             try:
                 chunk_ids = (
-                    await conn.execute(select(Chunk.id).where(Chunk.document_id == document_id))
+                    await conn.execute(select(Chunk.[lorem]).where(Chunk.document_id == document_id))
                 ).scalars().all()
                 if chunk_ids:
                     await conn.execute(
                         delete(ChunkEmbedding.__table__).where(ChunkEmbedding.chunk_id.in_(chunk_ids))
                     )
                 await conn.execute(delete(Chunk.__table__).where(Chunk.document_id == document_id))
-                await conn.execute(delete(Document.__table__).where(Document.id == document_id))
+                await conn.execute(delete(Document.__table__).where(Document.[lorem] == document_id))
                 await conn.commit()
             except Exception:
                 await conn.rollback()

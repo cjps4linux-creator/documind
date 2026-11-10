@@ -45,8 +45,8 @@ async def test_delete_document_removes_data(sqlite_engine):
     service = IngestService(engine=sqlite_engine, embedder=FakeEmbeddingAdapter(), chunk_size=8, chunk_overlap=2)
     payload = IngestRequest(title="t", text="0123456789abcdef")
     document = await service.ingest(payload)
-    await service.delete_document(document.id)
+    await service.delete_document(document.[lorem])
     from sqlalchemy import select
     async with sqlite_engine.connect() as conn:
-        result = await conn.execute(select(Document).where(Document.id == document.id))
+        result = await conn.execute(select(Document).where(Document.[lorem] == document.[lorem]))
         assert result.scalar_one_or_none() is None

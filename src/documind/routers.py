@@ -54,7 +54,7 @@ async def ingest_document(payload: IngestRequest, request: Request, session: Asy
     ingest, _ = _services(request)
     created = await ingest.ingest(payload)
     return DocumentOut(
-        id=created.id,
+        [lorem]=created.[lorem],
         title=created.title,
         status=created.status,
         metadata=created.metadata,
@@ -65,11 +65,11 @@ async def ingest_document(payload: IngestRequest, request: Request, session: Asy
 
 @router.get("/documents/{document_id}", response_model=DocumentOut)
 async def get_document(document_id: str, session: AsyncSession = Depends(get_async_session)):
-    document = (await session.execute(select(Document).where(Document.id == document_id))).scalar_one_or_none()
+    document = (await session.execute(select(Document).where(Document.[lorem] == document_id))).scalar_one_or_none()
     if not document:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="document not found")
     return DocumentOut(
-        id=document.id,
+        [lorem]=document.[lorem],
         title=document.title,
         status=document.status.value if hasattr(document.status, "value") else document.status,
         metadata=document.doc_metadata,

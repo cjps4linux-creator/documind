@@ -1,4 +1,4 @@
-# DocuMind — Launch Readiness
+# DocuMind  -  Launch Readiness
 
 **Date:** 2026-08-27
 **Owner:** Conrad CJ Wilson
@@ -15,7 +15,7 @@
 | Tests passing | Pending | pytest suite in `tests/` |
 | Security scan | Pending | SECURITY.md in place |
 | README complete | Complete | Architecture, ADRs, endpoints, honest limitations |
-| LICENSE | Complete | MIT — Conrad CJ Wilson |
+| LICENSE | Complete | MIT  -  Conrad CJ Wilson |
 | Docker build | Pending | Dockerfile + docker-compose.yml present |
 | Documentation | Complete | ADRs, architecture doc, API docs via OpenAPI |
 
@@ -51,4 +51,4 @@
 
 ## Contact
 
-Conrad CJ Wilson — conradcjwilson0@gmail.com
+Conrad CJ Wilson  -  conradcjwilson0@gmail.com

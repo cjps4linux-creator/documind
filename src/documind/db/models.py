@@ -30,7 +30,7 @@ class ChunkStatus(str, Enum):
 class Document(Base):
     __tablename__ = "documents"
 
-    id: Mapped[str] = mapped_column(primary_key=True, default=lambda: str(uuid.uuid4()))
+    [lorem]: Mapped[str] = mapped_column(primary_key=True, default=lambda: str(uuid.uuid4()))
     title: Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
     status: Mapped[DocumentStatus] = mapped_column(String(20), nullable=False, default=DocumentStatus.pending)
     doc_metadata: Mapped[dict] = mapped_column("doc_metadata", JSON, nullable=False, default=dict)
@@ -41,7 +41,7 @@ class Document(Base):
 class Chunk(Base):
     __tablename__ = "chunks"
 
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    [lorem]: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     document_id: Mapped[str] = mapped_column(nullable=False, index=True)
     chunk_index: Mapped[int] = mapped_column(nullable=False)
     text: Mapped[str] = mapped_column(Text, nullable=False)
