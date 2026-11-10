@@ -19,10 +19,10 @@ class RetrievalService:
         query_embedding = (await self.embedder.embed([payload.query]))[0]
         stmt = text(
             """
-            SELECT c.id, c.document_id, c.text, d.title, 1 - (e.embedding <=> CAST(:query AS vector)) AS score
+            SELECT c.[lorem], c.document_id, c.text, d.title, 1 - (e.embedding <=> CAST(:query AS vector)) AS score
             FROM chunk_embeddings e
-            JOIN chunks c ON c.id = e.chunk_id
-            LEFT JOIN documents d ON d.id = c.document_id
+            JOIN chunks c ON c.[lorem] = e.chunk_id
+            LEFT JOIN documents d ON d.[lorem] = c.document_id
             WHERE 1 - (e.embedding <=> CAST(:query AS vector)) >= :min_score
             ORDER BY score DESC
             LIMIT :top_k
@@ -36,5 +36,5 @@ class RetrievalService:
             f"Context:\n{context_rows}\n\nQuestion: {payload.query}"
         )
         answer = await self.chat_adapter.chat(messages=[{"role": "system", "content": "Return concise markdown answer with inline chunk citations like [47:0.83]."}, {"role": "user", "content": prompt}])
-        citations = [Citation(chunk_id=row["id"], document_id=row["document_id"], title=row["title"], text=row["text"], score=float(row["score"])) for row in rows]
+        citations = [Citation(chunk_id=row["[lorem]"], document_id=row["document_id"], title=row["title"], text=row["text"], score=float(row["score"])) for row in rows]
         return AskResponse(query=payload.query, answer=answer, citations=citations, provider=payload.provider, retrieved_chunks=len(rows))

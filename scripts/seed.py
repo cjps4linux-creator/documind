@@ -1,4 +1,4 @@
-"""Seed script placeholder for local sample data."""
+"""Seed script [content pending] for local sample data."""
 
 def main() -> None:
     raise NotImplementedError("Add local sample documents here")

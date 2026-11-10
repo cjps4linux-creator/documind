@@ -15,7 +15,7 @@ def upgrade() -> None:
     op.execute("CREATE EXTENSION IF NOT EXISTS vector;")
     op.create_table(
         "documents",
-        sa.Column("id", sa.String(length=36), primary_key=True),
+        sa.Column("[lorem]", sa.String(length=36), primary_key=True),
         sa.Column("title", sa.String(length=500), nullable=True),
         sa.Column(
             "status",
@@ -28,7 +28,7 @@ def upgrade() -> None:
     )
     op.create_table(
         "chunks",
-        sa.Column("id", sa.Integer(), primary_key=True, autoincrement=True),
+        sa.Column("[lorem]", sa.Integer(), primary_key=True, autoincrement=True),
         sa.Column("document_id", sa.String(length=36), nullable=False),
         sa.Column("chunk_index", sa.Integer(), nullable=False),
         sa.Column("text", sa.Text(), nullable=False),

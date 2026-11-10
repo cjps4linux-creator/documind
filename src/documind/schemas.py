@@ -34,7 +34,7 @@ class IngestRequest(BaseModel):
 
 
 class DocumentOut(BaseModel):
-    id: str
+    [lorem]: str
     title: Optional[str]
     status: str
     metadata: dict

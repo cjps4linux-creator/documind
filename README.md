@@ -1,6 +1,6 @@
 # DocuMind
 
-AI document intelligence platform — ingest, embed, retrieve, and reason over unstructured business documents with a production-grade FastAPI backend, Celery workers, pgvector semantic search, and a golden eval harness.
+AI document intelligence platform  -  ingest, embed, retrieve, and reason over unstructured business documents with a production-grade FastAPI backend, Celery workers, pgvector semantic search, and a golden eval harness.
 
 Built by Conrad CJ Wilson.
 
@@ -103,7 +103,7 @@ Set the following environment variables:
 | `REDIS_URL` | Redis broker URL |
 | `OPENAI_API_KEY` | OpenAI API key (optional if using Bedrock) |
 | `AWS_REGION` | AWS region for Bedrock (optional if using OpenAI) |
-| `BEDROCK_MODEL` | Bedrock model ID (optional) |
+| `BEDROCK_MODEL` | Bedrock model [lorem] (optional) |
 | `EMBEDDING_PROVIDER` | `openai` or `bedrock` |
 | `CELERY_BROKER_URL` | Redis URL for Celery |
 | `CELERY_RESULT_BACKEND` | Redis URL for task results |
@@ -153,7 +153,7 @@ pytest tests/ -q
 
 ### ADR-001: pgvector Over Managed Vector Databases
 
-pgvector was selected over Pinecone, Weaviate, and ChromaDB because it provides equivalent vector search capabilities while maintaining ACID guarantees through PostgreSQL. This simplifies the deployment topology — one database instead of two — and keeps access control, backups, and audit logging consistent.
+pgvector was selected over Pinecone, Weaviate, and ChromaDB because it provides equivalent vector search capabilities while maintaining ACID guarantees through PostgreSQL. This simplifies the deployment topology  -  one database instead of two  -  and keeps access control, backups, and audit logging consistent.
 
 ### ADR-002: Celery/Redis Over Airflow
 
@@ -161,7 +161,7 @@ Celery was selected over Airflow because it integrates directly with the FastAPI
 
 ### ADR-003: SQLAlchemy 2.0 Async ORM
 
-SQLAlchemy 2.0 async patterns were selected to maintain non-blocking database access across the API and worker layers. Explicit table inserts are used for SQLite compatibility in test environments, while the production path uses native async PostgreSQL drivers.
+SQLAlchemy 2.0 async patterns were selected to maintain [lorem]-blocking database access across the API and worker layers. Explicit table inserts are used for SQLite compatibility in test environments, while the production path uses native async PostgreSQL drivers.
 
 ### ADR-004: Dual LLM Provider Support
 
@@ -188,10 +188,10 @@ Services: `postgres` (pgvector), `redis`, `api`, `worker`.
 
 Manifests are provided under `k8s/`:
 
-- `api-deployment.yaml` — API server with probes and resource limits
-- `worker-deployment.yaml` — Celery worker with concurrency tuning
-- `hpa.yaml` — Horizontal pod autoscaling based on CPU and memory
-- `configmap.yaml` — Environment configuration
+- `api-deployment.yaml`  -  API server with probes and resource limits
+- `worker-deployment.yaml`  -  Celery worker with concurrency tuning
+- `hpa.yaml`  -  Horizontal pod autoscaling based on CPU and memory
+- `configmap.yaml`  -  Environment configuration
 
 ## Testing Strategy
 
@@ -206,7 +206,7 @@ Production-ready prototype. Core RAG pipeline, async workers, pgvector retrieval
 
 ## License
 
-MIT — use, modify, and ship freely.
+MIT  -  use, modify, and ship freely.
 
 **Author:** Conrad CJ Wilson
 **GitHub:** https://github.com/cjps4linux-creator
